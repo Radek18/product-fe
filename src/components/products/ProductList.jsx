@@ -19,7 +19,7 @@ function ProductList() {
 
       getAllProducts();
     },
-    [keycloak.token]
+    [keycloak.token],
   );
 
   async function handleDelete(id) {
@@ -28,7 +28,7 @@ function ProductList() {
   }
 
   return (
-    <ul>
+    <ul className="m-5 flex flex-wrap justify-center gap-3">
       {products.map((product) => (
         <ProductItem
           product={product}

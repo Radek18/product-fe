@@ -2,25 +2,25 @@ import { NavLink } from "react-router-dom";
 
 function SideNav() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/">
+    <nav className="w-52 border-r-2 p-5">
+      <ul className="flex flex-col gap-2">
+        <NavLink to="/">
+          <li className="cursor-pointer px-2 py-3 transition-all duration-300 hover:bg-slate-100">
             <p>Domů</p>
-          </NavLink>
-        </li>
+          </li>
+        </NavLink>
 
-        <li>
-          <NavLink to="/products">
+        <NavLink to="/products">
+          <li className="cursor-pointer px-2 py-3 transition-all duration-300 hover:bg-slate-100">
             <p>Produkty</p>
-          </NavLink>
-        </li>
+          </li>
+        </NavLink>
 
-        <li>
-          <NavLink to="/form">
+        <NavLink to="/form">
+          <li className="cursor-pointer px-2 py-3 transition-all duration-300 hover:bg-slate-100">
             <p>Přidat produkt</p>
-          </NavLink>
-        </li>
+          </li>
+        </NavLink>
       </ul>
     </nav>
   );

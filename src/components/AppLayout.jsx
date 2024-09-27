@@ -5,13 +5,13 @@ import SideNav from "./SideNav";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="flex h-screen flex-col text-slate-700">
       <Header />
 
-      <div>
+      <div className="flex flex-1 overflow-y-auto">
         <SideNav />
 
-        <main>
+        <main className="flex-1">
           <Outlet />
         </main>
       </div>

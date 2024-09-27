@@ -28,39 +28,68 @@ function ProductForm({ product }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Číslo</label>
+    <div className="flex h-full items-center justify-center">
+      <form className="flex w-56 flex-col gap-2" onSubmit={handleSubmit}>
+        <div className="flex flex-col">
+          <label>Číslo</label>
 
-        <input type="number" defaultValue={partNo} required />
-      </div>
+          <input
+            className="border-2 px-2 py-1 outline-none"
+            type="number"
+            defaultValue={partNo || ""}
+            required
+          />
+        </div>
 
-      <div>
-        <label>Název</label>
+        <div className="flex flex-col">
+          <label>Název</label>
 
-        <input type="text" defaultValue={name} required />
-      </div>
+          <input
+            className="border-2 px-2 py-1 outline-none"
+            type="text"
+            defaultValue={name || ""}
+            required
+          />
+        </div>
 
-      <div>
-        <label>Popis</label>
+        <div className="flex flex-col">
+          <label>Popis</label>
 
-        <input type="text" defaultValue={description} />
-      </div>
+          <input
+            className="border-2 px-2 py-1 outline-none"
+            type="text"
+            defaultValue={description || ""}
+          />
+        </div>
 
-      <div>
-        <label>Cena</label>
+        <div className="flex flex-col">
+          <label>Cena</label>
 
-        <input type="number" defaultValue={price} required />
-      </div>
+          <input
+            className="border-2 px-2 py-1 outline-none"
+            type="number"
+            defaultValue={Math.round(price) || ""}
+            required
+          />
+        </div>
 
-      <div>
-        <label htmlFor="isForSale">Skladem</label>
+        <div className="flex gap-3">
+          <label htmlFor="isForSale">Skladem</label>
 
-        <input type="checkbox" id="isForSale" defaultChecked={isForSale} />
-      </div>
+          <input
+            type="checkbox"
+            id="isForSale"
+            defaultChecked={isForSale || false}
+          />
+        </div>
 
-      <button>{!product ? "Uložit" : "Upravit"}</button>
-    </form>
+        <div className="mt-5 flex justify-center">
+          <button className="w-28 bg-blue-100 px-3 py-2 transition-all duration-300 hover:bg-blue-200">
+            {!product ? "Uložit" : "Upravit"}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

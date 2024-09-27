@@ -1,7 +1,8 @@
 import { createRoot } from "react-dom/client";
+import keycloak from "./keycloak.js";
 import App from "./App.jsx";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
-import keycloak from "./keycloak.js";
+import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <ReactKeycloakProvider

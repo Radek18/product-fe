@@ -14,6 +14,7 @@ function ProductList() {
     function () {
       async function getAllProducts() {
         const data = await getAllProductsApi(keycloak.token);
+        data.sort((a, b) => a.id - b.id);
         setProducts(data);
       }
 

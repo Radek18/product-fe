@@ -9,6 +9,7 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState();
   const [activeProductForm, setActiveProductForm] = useState(false);
+  const [reloadData, setReloadData] = useState(0);
 
   const { partNo, name, description, price, isForSale } = product || {};
 
@@ -21,7 +22,7 @@ function ProductDetail() {
 
       getProduct();
     },
-    [id, keycloak.token, setProduct],
+    [id, keycloak.token, setProduct, reloadData],
   );
 
   return (
@@ -53,6 +54,7 @@ function ProductDetail() {
         <ProductForm
           product={product}
           setActiveProductForm={setActiveProductForm}
+          setReloadData={setReloadData}
         />
       )}
     </div>

@@ -2,13 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { useKeycloak } from "@react-keycloak/web";
 import { createProduct, updateProduct } from "../../service/product-service";
 
-function ProductForm({ product }) {
+function ProductForm({ product, setActiveProductForm, setReloadData }) {
   const { keycloak } = useKeycloak();
   const navigate = useNavigate();
 
   const { id, partNo, name, description, price, isForSale } = product || {};
 
   async function handleSubmit(e) {
+    e.preventDefault();
+
     const formProduct = {
       id: id,
       partNo: Number(e.target[0].value),
@@ -19,11 +21,12 @@ function ProductForm({ product }) {
     };
 
     if (!product) {
-      e.preventDefault();
       await createProduct(formProduct, keycloak.token);
       navigate("/products");
     } else {
       await updateProduct(id, formProduct, keycloak.token);
+      setActiveProductForm(false);
+      setReloadData((prevValue) => ++prevValue);
     }
   }
 
